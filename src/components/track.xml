@@ -7,11 +7,11 @@
     </interface>
 
 	<children>
-        <LayoutGroup 
-            id = "first line" 
-            translation = "[0,0]" 
-            itemSpacings = "[8]" 
-            layoutDirection = "horiz" >
+      <LayoutGroup 
+          id = "first line" 
+          translation = "[0,0]" 
+          itemSpacings = "[8]" 
+          layoutDirection = "horiz" >
       <KexpLabel id="artistLabel"
       	text="Artist Goes here"
         font = "font:LargeBoldSystemFont" 
@@ -34,6 +34,7 @@
 <script type="text/brightscript" >
 <![CDATA[
   function init()
+    print m.top.boundingRect()
     m.top.layoutDirection="vert"
     m.top.horizAlignment = "left"
     m.top.vertAlignment	= "center"

@@ -6,6 +6,7 @@
 
   <interface>
     <field id = "tracks" type = "array" />
+    <field id = "album_art" type = "string" />
   </interface>
 
   <script type = "text/brightscript" >
@@ -51,6 +52,36 @@
         result = ParseJson(data)
 
         m.top.tracks = result.results
+        m.top.album_art = fetchAlbumArt(result)
+    end sub
+
+    sub fetchAlbumArt(result) as Object
+      curSong = result.results[0]
+      imageUri = curSong.image_uri
+      ' Gross to be using path ui here but w/e
+      path = CreateObject("roPath", imageUri)
+      parts = path.Split()
+      filename = "tmp:/" + parts.basename + parts.extension
+
+      fs = createObject("roFileSystem")
+      if fs.Exists(filename)
+        print "cache hit for " + filename
+        return filename
+      end if
+      print "cache miss for " + filename
+
+      port = CreateObject("roMessagePort")
+      readInternet = createObject("roUrlTransfer")
+      readInternet.setMessagePort(port)
+      readInternet.EnablePeerVerification(false)
+
+      readInternet.setUrl(imageUri)
+      status = readInternet.GetToFile(filename)
+      if status <> 200
+        print "error downloading album_art" + readInternet.status
+      end if
+
+      return filename    
     end sub
     ]]>
 

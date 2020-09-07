@@ -2,14 +2,20 @@
 <component name="NowPlaying" extends="Scene">
 	<children>
     <LayoutGroup
+      id="content"
+      layoutDirection="vert"
+      itemSpacings = "30"
+      vertAlignment = "center"
+      horizAlignment = "center"
+    >
+    <LayoutGroup
       id="maindisp"
       layoutDirection="horiz"
-      itemSpacings = "50"
-      vertAlignment = "center"
+      itemSpacings = "30"
+      vertAlignment = "top"
     >
-    <Rectangle
-      id="testRectangle"
-      color="0x880088FF"
+    <Poster
+      id="album_cover"
       width="500"
       height="500"
       translation="[0,0]" />
@@ -36,14 +42,9 @@
             artist=""
             album=""
             />
-          <Track id="next_track"
-            title="Next Title Goes Here"
-            artist="Next Artist Goes Here"
-            album="Next Album Goes Here"
-            opacity=".4"
-            />
           </LayoutGroup>
       </LayoutGroup>
+    </LayoutGroup>
 	</children>
 <!-- BrightScript Portion -->
 <script type="text/brightscript" >
@@ -53,12 +54,13 @@
     m.top.backgroundColor	= "0x111111"
 
     res = m.top.currentDesignResolution
-    disp = m.top.findNode("maindisp")
-    disp.translation = [50, 300]
+    disp = m.top.findNode("content")
+    disp.translation = [res.width / 2, res.height / 2]
 
     m.metadataTask = createObject("RoSGNode", "MetadataLoader")
 
     m.metadataTask.observeField("tracks", "updateTracks")
+    m.metadataTask.observeField("album_art", "updateAlbumArt")
 
     m.metadataTask.control = "RUN" 
   end function
@@ -78,6 +80,11 @@
     prev_prev_track.artist = m.metadataTask.tracks[2].artist
     prev_prev_track.album = m.metadataTask.tracks[2].album
     prev_prev_track.title = m.metadataTask.tracks[2].song
+  end function
+
+  function updateAlbumArt()
+    album_art_node = m.top.findNode("album_cover")
+    album_art_node.uri = m.metadataTask.album_art
   end function
 ]]>
 </script>
