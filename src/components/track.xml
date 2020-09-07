@@ -10,24 +10,24 @@
         <LayoutGroup 
             id = "first line" 
             translation = "[0,0]" 
-            itemSpacings = "[10]" 
+            itemSpacings = "[8]" 
             layoutDirection = "horiz" >
-      <Label id="artistLabel"
+      <KexpLabel id="artistLabel"
       	text="Artist Goes here"
-        color="0xAEAEAE"
+        font = "font:LargeBoldSystemFont" 
         />
-      <Label id="seperator"
+      <KexpLabel id="seperator"
       	text = "–"
-        color="0xAEAEAE"
+        font = "font:LargeSystemFont" 
         />
-      <Label id="titleLabel"
+      <KexpLabel id="titleLabel"
       	text="Title Goes Here"
-        color="0xAEAEAE"
+        font = "font:LargeSystemFont" 
         />
     </LayoutGroup>
-    <Label id="albumLabel"
-        text="Album Goes here"
-        color="0xAEAEAE"
+    <KexpLabel id="albumLabel"
+        text=""
+        font = "font:MediumSystemFont" 
     />
     </children>
 <!-- BrightScript Portion -->
@@ -37,7 +37,7 @@
     m.top.layoutDirection="vert"
     m.top.horizAlignment = "left"
     m.top.vertAlignment	= "center"
-    m.top.itemSpacings = [15.0]
+    m.top.itemSpacings = [7.0]
   end function
 
   function updateArtist()
@@ -52,7 +52,7 @@
 
   function updateAlbum()
     album = m.top.findNode("albumLabel")
-    album.text = m.top.album
+    album.text = ucase(m.top.album)
   end function
 ]]>
 </script>

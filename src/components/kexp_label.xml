@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="KEXPLabel" extends="Label">
-    <Label id="label"
-        color="0xAEAEAE"
-    />
+<component name="KexpLabel" extends="Label">
+    <children>
+        <Label id="label"
+            color="0xAEAEAE"
+        />
     </children>
 <!-- BrightScript Portion -->
 <script type="text/brightscript" >
 <![CDATA[
+  function init()
+  end function
 ]]>
 </script>
 <!-- End of BrightScript Portion -->

@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="NowPlaying" extends="Scene">
 	<children>
-      <Track id="track"
-      	title="Title Goes Here"
-      	artist="Artist Goes Here"
-      	album="Album Goes Here"
-        translation="[500, 300]"
-        />
-    </children>
+    <LayoutGroup 
+      id = "track_display"
+      layoutDirection="vert"
+      itemSpacings="[15]"
+    >
+        <Track id="prev_prev_track"
+          title="Prev Prev Title Goes Here"
+          artist="Prev Prev Artist Goes Here"
+          album="Prev Prev Album Goes Here"
+          opacity=".2"
+          />
+        <Track id="prev_track"
+          title="Prev Title Goes Here"
+          artist="Prev Artist Goes Here"
+          album="Prev Album Goes Here"
+          opacity=".4"
+          />
+        <Track id="cur_track"
+          title=""
+          artist=""
+          album=""
+          />
+    </LayoutGroup>
+	</children>
 <!-- BrightScript Portion -->
 <script type="text/brightscript" >
 <![CDATA[
@@ -15,28 +32,32 @@
     m.top.backgroundUri = ""
     m.top.backgroundColor	= "0x111111"
 
+    res = m.top.currentDesignResolution
+    disp = m.top.findNode("track_display")
+    disp.translation = [50, 20]
+
     m.metadataTask = createObject("RoSGNode", "MetadataLoader")
 
-    m.metadataTask.observeField("artist", "updateArtist")
-    m.metadataTask.observeField("title", "updateTitle")
-    m.metadataTask.observeField("album", "updateAlbum")
+    m.metadataTask.observeField("tracks", "updateTracks")
 
     m.metadataTask.control = "RUN" 
   end function
 
-  function updateArtist()
-    track = m.top.findNode("track")
-    track.artist = m.metadataTask.artist
-  end function
+  function updateTracks()
+    cur_track = m.top.findNode("cur_track")
+    cur_track.artist = m.metadataTask.tracks[0].artist
+    cur_track.album = m.metadataTask.tracks[0].album
+    cur_track.title = m.metadataTask.tracks[0].song
 
-  function updateTitle()
-    track = m.top.findNode("track")
-    track.title = m.metadataTask.title
-  end function
+    prev_track = m.top.findNode("prev_track")
+    prev_track.artist = m.metadataTask.tracks[1].artist
+    prev_track.album = m.metadataTask.tracks[1].album
+    prev_track.title = m.metadataTask.tracks[1].song
 
-  function updateAlbum()
-    track = m.top.findNode("track")
-    track.album = m.metadataTask.album
+    prev_prev_track = m.top.findNode("prev_prev_track")
+    prev_prev_track.artist = m.metadataTask.tracks[2].artist
+    prev_prev_track.album = m.metadataTask.tracks[2].album
+    prev_prev_track.title = m.metadataTask.tracks[2].song
   end function
 ]]>
 </script>

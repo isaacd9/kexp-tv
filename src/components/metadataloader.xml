@@ -5,21 +5,7 @@
 <component name = "MetadataLoader" extends = "Task" >
 
   <interface>
-    <field id = "id" type = "string" />
-    <field id = "uri" type = "uri" />
-    <field id = "airdate" type = "time" />
-    <field id = "show" type = "int" />
-    <field id = "show_uri" type = "uri" />
-    <field id = "image_uri" type = "uri" />
-    <field id = "title" type = "string" />
-    <field id = "artist" type = "string" />
-    <field id = "album" type = "string" />
-    <field id = "release_date" type = "time" />
-    <field id = "comment" type = "string" />
-    <field id = "play_type" type = "string" />
-    <field id = "is_local" type = "bool" />
-    <field id = "is_live" type = "bool" />
-    <field id = "is_request" type = "bool" />
+    <field id = "tracks" type = "array" />
   </interface>
 
   <script type = "text/brightscript" >
@@ -64,23 +50,7 @@
         data = dataEvent.GetString()
         result = ParseJson(data)
 
-        curSong = result.results[0]
-
-        m.top.id = cursong.id
-        m.top.uri = curSong.uri
-        m.top.airdate = curSong.airdate
-        m.top.show = curSong.show
-        m.top.show_uri = curSong.show_uri
-        m.top.image_uri = curSong.image_uri
-        m.top.title = curSong.song
-        m.top.album = curSong.album
-        m.top.artist = curSong.artist
-        m.top.release_date = curSong.release_date
-        m.top.comment = curSong.comment
-        m.top.play_type = curSong.play_type
-        m.top.is_local = curSong.is_local
-        m.top.is_live = curSong.is_live
-        m.top.is_request = curSong.is_request
+        m.top.tracks = result.results
     end sub
     ]]>
 
