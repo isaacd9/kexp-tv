@@ -1,43 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="NowPlaying" extends="Scene">
 	<children>
-      <Label id="nowPlayingLabel"
-      	text="Now Playing"
+      <Label id="titleLabel"
+      	text="Title Goes Here"
       	width="1280"
       	height="720"
-      	horizAlign="center"
+      	horizAlign="left"
       	vertAlign="center"
-        color="0xFFFFFFFF"
+        translation="[500,-50]"
+        color="0xEFAE2C"
         />
       <Label id="artistLabel"
       	text="Artist Goes here"
       	width="1280"
       	height="720"
-      	horizAlign="center"
+      	horizAlign="left"
       	vertAlign="center"
-        translation="[0,50]"
-        color="0xFFFFFFFF"
+        translation="[500,0]"
+        color="0xEFAE2C"
         />
-      <Label id="titleLabel"
-      	text="Title Goes Here"
+      <Label id="albumLabel"
+      	text="Album Goes here"
       	width="1280"
       	height="720"
-      	horizAlign="center"
+      	horizAlign="left"
       	vertAlign="center"
-        translation="[0,100]"
-        color="0xFFFFFFFF"
+        translation="[500,50]"
+        color="0xEFAE2C"
         />
     </children>
 <!-- BrightScript Portion -->
 <script type="text/brightscript" >
 <![CDATA[
   function init()
-        m.metadataTask = createObject("RoSGNode", "MetadataLoader")
+    m.top.backgroundUri = ""
+    m.top.backgroundColor	= "0x222222"
 
-        m.metadataTask.observeField("artist", "updateArtist")
-        m.metadataTask.observeField("title", "updateTitle")
+    m.metadataTask = createObject("RoSGNode", "MetadataLoader")
 
-        m.metadataTask.control = "RUN" 
+    m.metadataTask.observeField("artist", "updateArtist")
+    m.metadataTask.observeField("title", "updateTitle")
+    m.metadataTask.observeField("album", "updateAlbum")
+
+    m.metadataTask.control = "RUN" 
   end function
 
   function updateArtist()
@@ -47,6 +52,11 @@
 
   function updateTitle()
     titleLabel = m.top.findNode("titleLabel")
+    titleLabel.text = m.metadataTask.title
+  end function
+
+  function updateAlbum()
+    titleLabel = m.top.findNode("albumLabel")
     titleLabel.text = m.metadataTask.title
   end function
 ]]>
