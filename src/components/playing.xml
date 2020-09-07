@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="NowPlaying" extends="Scene">
+	<children>
+      <Label id="nowPlayingLabel"
+      	text="Now Playing"
+      	width="1280"
+      	height="720"
+      	horizAlign="center"
+      	vertAlign="center"
+        color="0xFFFFFFFF"
+        />
+      <Label id="artistLabel"
+      	text="Artist Goes here"
+      	width="1280"
+      	height="720"
+      	horizAlign="center"
+      	vertAlign="center"
+        translation="[0,50]"
+        color="0xFFFFFFFF"
+        />
+      <Label id="titleLabel"
+      	text="Title Goes Here"
+      	width="1280"
+      	height="720"
+      	horizAlign="center"
+      	vertAlign="center"
+        translation="[0,100]"
+        color="0xFFFFFFFF"
+        />
+    </children>
+<!-- BrightScript Portion -->
+<script type="text/brightscript" >
+<![CDATA[
+  function init()
+        m.metadataTask = createObject("RoSGNode", "MetadataLoader")
+
+        m.metadataTask.observeField("artist", "updateArtist")
+        m.metadataTask.observeField("title", "updateTitle")
+
+        m.metadataTask.control = "RUN" 
+  end function
+
+  function updateArtist()
+    artistLabel = m.top.findNode("artistLabel")
+    artistLabel.text = m.metadataTask.artist
+  end function
+
+  function updateTitle()
+    titleLabel = m.top.findNode("titleLabel")
+    titleLabel.text = m.metadataTask.title
+  end function
+]]>
+</script>
+<!-- End of BrightScript Portion -->
+</component>
