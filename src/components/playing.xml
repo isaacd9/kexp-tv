@@ -18,10 +18,18 @@
           album="Prev Album Goes Here"
           opacity=".4"
           />
+      <LayoutGroup scale="[2, 2]">
         <Track id="cur_track"
           title=""
           artist=""
           album=""
+          />
+        </LayoutGroup>
+        <Track id="next_track"
+          title="Next Title Goes Here"
+          artist="Next Artist Goes Here"
+          album="Next Album Goes Here"
+          opacity=".4"
           />
     </LayoutGroup>
 	</children>
