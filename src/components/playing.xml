@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="NowPlaying" extends="Scene">
 	<children>
-    <LayoutGroup 
-      id = "track_display"
-      layoutDirection="vert"
-      itemSpacings="[15]"
+    <LayoutGroup
+      id="maindisp"
+      layoutDirection="horiz"
+      itemSpacings = "50"
+      vertAlignment = "center"
     >
-        <Track id="prev_prev_track"
-          title="Prev Prev Title Goes Here"
-          artist="Prev Prev Artist Goes Here"
-          album="Prev Prev Album Goes Here"
-          opacity=".2"
-          />
-        <Track id="prev_track"
-          title="Prev Title Goes Here"
-          artist="Prev Artist Goes Here"
-          album="Prev Album Goes Here"
-          opacity=".4"
-          />
-      <LayoutGroup scale="[2, 2]">
-        <Track id="cur_track"
-          title=""
-          artist=""
-          album=""
-          />
-        </LayoutGroup>
-        <Track id="next_track"
-          title="Next Title Goes Here"
-          artist="Next Artist Goes Here"
-          album="Next Album Goes Here"
-          opacity=".4"
-          />
-    </LayoutGroup>
+    <Rectangle
+      id="testRectangle"
+      color="0x880088FF"
+      width="500"
+      height="500"
+      translation="[0,0]" />
+
+      <LayoutGroup 
+        id = "track_display"
+        layoutDirection="vert"
+        itemSpacings="[15]"
+      >
+          <Track id="prev_prev_track"
+            title="Prev Prev Title Goes Here"
+            artist="Prev Prev Artist Goes Here"
+            album="Prev Prev Album Goes Here"
+            opacity=".2"
+            />
+          <Track id="prev_track"
+            title="Prev Title Goes Here"
+            artist="Prev Artist Goes Here"
+            album="Prev Album Goes Here"
+            opacity=".4"
+            />
+          <Track id="cur_track"
+            title=""
+            artist=""
+            album=""
+            />
+          <Track id="next_track"
+            title="Next Title Goes Here"
+            artist="Next Artist Goes Here"
+            album="Next Album Goes Here"
+            opacity=".4"
+            />
+          </LayoutGroup>
+      </LayoutGroup>
 	</children>
 <!-- BrightScript Portion -->
 <script type="text/brightscript" >
@@ -41,8 +53,8 @@
     m.top.backgroundColor	= "0x111111"
 
     res = m.top.currentDesignResolution
-    disp = m.top.findNode("track_display")
-    disp.translation = [50, 20]
+    disp = m.top.findNode("maindisp")
+    disp.translation = [50, 300]
 
     m.metadataTask = createObject("RoSGNode", "MetadataLoader")
 
