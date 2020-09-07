@@ -42,6 +42,11 @@
             artist=""
             album=""
             />
+          <KexpLabel id="comment"
+          wrap="true"
+          width="600"
+          font = "font:SmallSystemFont" 
+          />
           </LayoutGroup>
       </LayoutGroup>
     </LayoutGroup>
@@ -70,6 +75,8 @@
     cur_track.artist = m.metadataTask.tracks[0].artist
     cur_track.album = m.metadataTask.tracks[0].album
     cur_track.title = m.metadataTask.tracks[0].song
+    comment = m.top.findNode("comment")
+    comment.text = m.metadataTask.tracks[0].comment
 
     prev_track = m.top.findNode("prev_track")
     prev_track.artist = m.metadataTask.tracks[1].artist
@@ -80,6 +87,7 @@
     prev_prev_track.artist = m.metadataTask.tracks[2].artist
     prev_prev_track.album = m.metadataTask.tracks[2].album
     prev_prev_track.title = m.metadataTask.tracks[2].song
+    prev_prev_track = m.top.findNode("prev_prev_track")
   end function
 
   function updateAlbumArt()
