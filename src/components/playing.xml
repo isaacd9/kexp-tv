@@ -1,32 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="NowPlaying" extends="Scene">
 	<children>
-      <Label id="titleLabel"
-      	text="Title Goes Here"
-      	width="1280"
-      	height="720"
-      	horizAlign="left"
-      	vertAlign="center"
-        translation="[500,-50]"
-        color="0xEFAE2C"
-        />
-      <Label id="artistLabel"
-      	text="Artist Goes here"
-      	width="1280"
-      	height="720"
-      	horizAlign="left"
-      	vertAlign="center"
-        translation="[500,0]"
-        color="0xEFAE2C"
-        />
-      <Label id="albumLabel"
-      	text="Album Goes here"
-      	width="1280"
-      	height="720"
-      	horizAlign="left"
-      	vertAlign="center"
-        translation="[500,50]"
-        color="0xEFAE2C"
+      <Track id="track"
+      	title="Title Goes Here"
+      	artist="Artist Goes Here"
+      	album="Album Goes Here"
+        translation="[500, 300]"
         />
     </children>
 <!-- BrightScript Portion -->
@@ -34,7 +13,7 @@
 <![CDATA[
   function init()
     m.top.backgroundUri = ""
-    m.top.backgroundColor	= "0x222222"
+    m.top.backgroundColor	= "0x111111"
 
     m.metadataTask = createObject("RoSGNode", "MetadataLoader")
 
@@ -46,18 +25,18 @@
   end function
 
   function updateArtist()
-    artistLabel = m.top.findNode("artistLabel")
-    artistLabel.text = m.metadataTask.artist
+    track = m.top.findNode("track")
+    track.artist = m.metadataTask.artist
   end function
 
   function updateTitle()
-    titleLabel = m.top.findNode("titleLabel")
-    titleLabel.text = m.metadataTask.title
+    track = m.top.findNode("track")
+    track.title = m.metadataTask.title
   end function
 
   function updateAlbum()
-    titleLabel = m.top.findNode("albumLabel")
-    titleLabel.text = m.metadataTask.title
+    track = m.top.findNode("track")
+    track.album = m.metadataTask.album
   end function
 ]]>
 </script>

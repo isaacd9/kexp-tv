@@ -81,7 +81,6 @@
         m.top.is_local = curSong.is_local
         m.top.is_live = curSong.is_live
         m.top.is_request = curSong.is_request
-        print "updated"
     end sub
     ]]>
 

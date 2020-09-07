@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="KEXPLabel" extends="Label">
+    <Label id="label"
+        color="0xAEAEAE"
+    />
+    </children>
+<!-- BrightScript Portion -->
+<script type="text/brightscript" >
+<![CDATA[
+]]>
+</script>
+<!-- End of BrightScript Portion -->
+</component>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="Track" extends="LayoutGroup">
+    <interface >
+        <field id = "title" type = "string" onchange="updateTitle" />
+        <field id = "artist" type = "string" onchange="updateArtist" />
+        <field id = "album" type = "string" onchange="updateAlbum" />
+    </interface>
+
+	<children>
+        <LayoutGroup 
+            id = "first line" 
+            translation = "[0,0]" 
+            itemSpacings = "[10]" 
+            layoutDirection = "horiz" >
+      <Label id="artistLabel"
+      	text="Artist Goes here"
+        color="0xAEAEAE"
+        />
+      <Label id="seperator"
+      	text = "–"
+        color="0xAEAEAE"
+        />
+      <Label id="titleLabel"
+      	text="Title Goes Here"
+        color="0xAEAEAE"
+        />
+    </LayoutGroup>
+    <Label id="albumLabel"
+        text="Album Goes here"
+        color="0xAEAEAE"
+    />
+    </children>
+<!-- BrightScript Portion -->
+<script type="text/brightscript" >
+<![CDATA[
+  function init()
+    m.top.layoutDirection="vert"
+    m.top.horizAlignment = "left"
+    m.top.vertAlignment	= "center"
+    m.top.itemSpacings = [15.0]
+  end function
+
+  function updateArtist()
+    artist = m.top.findNode("artistLabel")
+    artist.text = m.top.artist
+  end function
+
+  function updateTitle()
+    title = m.top.findNode("titleLabel")
+    title.text = m.top.title
+  end function
+
+  function updateAlbum()
+    album = m.top.findNode("albumLabel")
+    album.text = m.top.album
+  end function
+]]>
+</script>
+<!-- End of BrightScript Portion -->
+</component>
