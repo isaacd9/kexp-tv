@@ -58,6 +58,10 @@
     sub fetchAlbumArt(result) as Object
       curSong = result.results[0]
       imageUri = curSong.image_uri
+      print imageUri
+      if imageUri = ""
+        return ""
+      end if
       ' Gross to be using path ui here but w/e
       path = CreateObject("roPath", imageUri)
       parts = path.Split()
