@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="TrackDisplay" extends="LayoutGroup">
+	<children>
+          <Track id="prev_prev_track"
+            title="Prev Prev Title Goes Here"
+            artist="Prev Prev Artist Goes Here"
+            album="Prev Prev Album Goes Here"
+            opacity=".2"
+            />
+          <Track id="prev_track"
+            title="Prev Title Goes Here"
+            artist="Prev Artist Goes Here"
+            album="Prev Album Goes Here"
+            opacity=".4"
+            />
+          <Track id="cur_track"
+            title=""
+            artist=""
+            album=""
+            />
+          <KexpLabel id="comment"
+          wrap="true"
+          width="500"
+          font = "font:SmallSystemFont" 
+          />
+	</children>
+<!-- BrightScript Portion -->
+<script type="text/brightscript" >
+<![CDATA[
+  function init()
+    m.top.layoutDirection="vert"
+    m.topitemSpacings="[15]"
+  end function
+
+  function updateTracks()
+    cur_track = m.top.findNode("cur_track")
+    cur_track.artist = m.metadataTask.tracks[0].artist
+    cur_track.album = m.metadataTask.tracks[0].album
+    cur_track.title = m.metadataTask.tracks[0].song
+    comment = m.top.findNode("comment")
+    comment.text = m.metadataTask.tracks[0].comment
+    print "comment"
+    print m.metadataTask.tracks[0].comment
+
+    prev_track = m.top.findNode("prev_track")
+    prev_track.artist = m.metadataTask.tracks[1].artist
+    prev_track.album = m.metadataTask.tracks[1].album
+    prev_track.title = m.metadataTask.tracks[1].song
+
+    prev_prev_track = m.top.findNode("prev_prev_track")
+    prev_prev_track.artist = m.metadataTask.tracks[2].artist
+    prev_prev_track.album = m.metadataTask.tracks[2].album
+    prev_prev_track.title = m.metadataTask.tracks[2].song
+    prev_prev_track = m.top.findNode("prev_prev_track")
+  end function
+]]>
+</script>
+<!-- End of BrightScript Portion -->
+</component>

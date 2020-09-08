@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="ScrollingKexpLabel" extends="ScrollingLabel">
+    <children>
+        <ScrollingLabel
+            id="label"
+            color="0xAEAEAE"
+            scrollSpeed="1"
+        />
+    </children>
+<!-- BrightScript Portion -->
+<script type="text/brightscript" >
+<![CDATA[
+  function init()
+  end function
+]]>
+</script>
+<!-- End of BrightScript Portion -->
+</component>

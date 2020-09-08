@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="Track" extends="LayoutGroup">
     <interface >
-        <field id = "title" type = "string" onchange="updateTitle" />
-        <field id = "artist" type = "string" onchange="updateArtist" />
+        <field id = "title" type = "string" onchange="updateTitleArtist" />
+        <field id = "artist" type = "string" onchange="updateTitleArtist" />
         <field id = "album" type = "string" onchange="updateAlbum" />
     </interface>
 
 	<children>
       <LayoutGroup 
-          id = "first line" 
-          translation = "[0,0]" 
-          itemSpacings = "[8]" 
+          id = "trackLayout"
+          translation = "[0,0]"
+          itemSpacings = "[5]"
+          layoutDirection = "vert" >
+      <LayoutGroup
+          id = "firstLineLayout"
+          translation = "[0,0]"
+          itemSpacings = "[8]"
           layoutDirection = "horiz" >
-      <KexpLabel id="artistLabel"
-      	text="Artist Goes here"
-        font = "font:LargeBoldSystemFont" 
-        />
-      <KexpLabel id="seperator"
-      	text = "–"
-        font = "font:LargeSystemFont" 
-        />
-      <KexpLabel id="titleLabel"
-      	text="Title Goes Here"
-        font = "font:LargeSystemFont" 
+      <ScrollingKexpLabel id="titleArtist"
+        text="Artist Goes Here - Title Goes here"
+        font = "font:LargeBoldSystemFont"
+        maxwidth = "550"
         />
     </LayoutGroup>
     <KexpLabel id="albumLabel"
         text=""
-        font = "font:MediumSystemFont" 
+        font = "font:MediumSystemFont"
+        width = "500"
     />
+    </LayoutGroup>
     </children>
 <!-- BrightScript Portion -->
 <script type="text/brightscript" >
@@ -41,14 +41,9 @@
     m.top.itemSpacings = [7.0]
   end function
 
-  function updateArtist()
-    artist = m.top.findNode("artistLabel")
-    artist.text = m.top.artist
-  end function
-
-  function updateTitle()
-    title = m.top.findNode("titleLabel")
-    title.text = m.top.title
+  function updateTitleArtist()
+    titleArtist = m.top.findNode("titleArtist")
+    titleArtist.text = m.top.artist + " - " + m.top.title
   end function
 
   function updateAlbum()
