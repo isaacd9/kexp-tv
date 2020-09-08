@@ -26,9 +26,9 @@
     track.opacity  = m.top.opacity
     if m.top.metadata.play_type = "airbreak"
         print "airbreak"
-        track.artist = "Airbreak"
-        track.album = "Kexp"
-        track.title =  "Kexp"
+        airbreak = createObject("roSGNode", "Airbreak")
+        m.top.replaceChild(airbreak, 0)
+        return true
     else
         track.artist = m.top.metadata.artist
         track.album = m.top.metadata.album
