@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="PlaylistItem" extends="Group">
+    <interface>
+        <field id = "metadata" type = "assocarray" onchange="updateMetadata" />
+        <field id = "opacity" type = "integer" />
+    </interface>
+
+	<children>
+        <Track id="track"
+            title="Title"
+            artist="Artist"
+            album="Album"
+        />
+    </children>
+
+<!-- BrightScript Portion -->
+<script type="text/brightscript" >
+<![CDATA[
+  function init()
+    track = m.top.findNode("track")
+    track.opacity = m.top.opacity
+  end function
+
+  function updateMetadata()
+    track = createObject("roSGNode", "Track")
+    track.opacity  = m.top.opacity
+    if m.top.metadata.play_type = "airbreak"
+        print "airbreak"
+        track.artist = "Airbreak"
+        track.album = "Kexp"
+        track.title =  "Kexp"
+    else
+        track.artist = m.top.metadata.artist
+        track.album = m.top.metadata.album
+        track.title =  m.top.metadata.song
+        track.opacity  = m.top.opacity
+    end if
+
+    m.top.replaceChild(track, 0)
+  end function
+]]>
+</script>
+<!-- End of BrightScript Portion -->
+</component>

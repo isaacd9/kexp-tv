@@ -34,7 +34,6 @@
 <script type="text/brightscript" >
 <![CDATA[
   function init()
-    print m.top.boundingRect()
     m.top.layoutDirection="vert"
     m.top.horizAlignment = "left"
     m.top.vertAlignment	= "center"

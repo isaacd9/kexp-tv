@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="TrackDisplay" extends="LayoutGroup">
+    <interface>
+        <field id = "tracks" type = "array" onchange="updateTracks" />
+    </interface>
+
 	<children>
-          <Track id="prev_prev_track"
-            title="Prev Prev Title Goes Here"
-            artist="Prev Prev Artist Goes Here"
-            album="Prev Prev Album Goes Here"
-            opacity=".2"
-            />
-          <Track id="prev_track"
-            title="Prev Title Goes Here"
-            artist="Prev Artist Goes Here"
-            album="Prev Album Goes Here"
-            opacity=".4"
-            />
-          <Track id="cur_track"
-            title=""
-            artist=""
-            album=""
-            />
+          <PlaylistItem id="prev_prev_track" opacity=".2" />
+          <PlaylistItem id="prev_track" opacity=".4" />
+          <PlaylistItem id="cur_track" />
           <KexpLabel id="comment"
           wrap="true"
           width="500"
@@ -29,29 +19,19 @@
 <![CDATA[
   function init()
     m.top.layoutDirection="vert"
-    m.topitemSpacings="[15]"
+    m.top.itemSpacings="[20]"
   end function
 
   function updateTracks()
     cur_track = m.top.findNode("cur_track")
-    cur_track.artist = m.metadataTask.tracks[0].artist
-    cur_track.album = m.metadataTask.tracks[0].album
-    cur_track.title = m.metadataTask.tracks[0].song
-    comment = m.top.findNode("comment")
-    comment.text = m.metadataTask.tracks[0].comment
-    print "comment"
-    print m.metadataTask.tracks[0].comment
-
     prev_track = m.top.findNode("prev_track")
-    prev_track.artist = m.metadataTask.tracks[1].artist
-    prev_track.album = m.metadataTask.tracks[1].album
-    prev_track.title = m.metadataTask.tracks[1].song
+    prev_prev_track = m.top.findNode("prev_prev_track")
+    cur_track.metadata = m.top.tracks[0] 
+    prev_track.metadata = m.top.tracks[1] 
+    prev_prev_track.metadata = m.top.tracks[2] 
 
-    prev_prev_track = m.top.findNode("prev_prev_track")
-    prev_prev_track.artist = m.metadataTask.tracks[2].artist
-    prev_prev_track.album = m.metadataTask.tracks[2].album
-    prev_prev_track.title = m.metadataTask.tracks[2].song
-    prev_prev_track = m.top.findNode("prev_prev_track")
+    comment = m.top.findNode("comment")
+    comment.text = m.top.tracks[0].comment
   end function
 ]]>
 </script>

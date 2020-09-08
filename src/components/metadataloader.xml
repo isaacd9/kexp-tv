@@ -17,6 +17,8 @@
     end sub
 
     sub getmetadata()
+      m.appManager = createObject("roAppManager")
+
       m.port = CreateObject("roMessagePort")
       m.readInternet = createObject("roUrlTransfer")
       m.readInternet.setMessagePort(m.port)
@@ -27,6 +29,7 @@
       m.readInternet.setUrl("https://api.kexp.org/v2/plays/?format=json&limit=3&ordering=-airdate")
 
         while(true)
+            m.appManager.UpdateLastKeyPressTime()
             doRequest()
             sleep(3000)
         end while
@@ -58,7 +61,6 @@
     sub fetchAlbumArt(result) as Object
       curSong = result.results[0]
       imageUri = curSong.image_uri
-      print imageUri
       if imageUri = ""
         return ""
       end if
