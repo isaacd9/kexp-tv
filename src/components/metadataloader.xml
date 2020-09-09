@@ -71,7 +71,7 @@
 
       fs = createObject("roFileSystem")
       if fs.Exists(filename)
-        print "cache hit for " + filename
+        'print "cache hit for " + filename
         return filename
       end if
       print "cache miss for " + filename
