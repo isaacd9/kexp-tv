@@ -53,11 +53,14 @@
     m.chunks = chunks
     m.i = 0
 
+    print "updated comment " + text
+
     nextChunk()
   end function
 
   function nextChunk()
     if m.chunks.count() < 1
+        m.top.text = ""
         return false
     end if
     i = m.i mod m.chunks.count()

@@ -21,5 +21,5 @@ DISTREL = ../dist
 
 ZIP_EXCLUDE= -x \*.pkg -x storeassets\* -x keys\* -x \*/.\*
 
-include ./my.mk
+include ../my.mk
 include ./app.mk
