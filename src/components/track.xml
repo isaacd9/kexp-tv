@@ -7,7 +7,7 @@
     </interface>
 
 	<children>
-      <LayoutGroup 
+      <LayoutGroup
           id = "trackLayout"
           translation = "[0,0]"
           itemSpacings = "[5]"

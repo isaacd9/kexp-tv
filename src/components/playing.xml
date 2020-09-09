@@ -40,7 +40,7 @@
     m.metadataTask.observeField("tracks", "updateTracks")
     m.metadataTask.observeField("album_art", "updateAlbumArt")
 
-    m.metadataTask.control = "RUN" 
+    m.metadataTask.control = "RUN"
   end function
 
   function updateTracks()

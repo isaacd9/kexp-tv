@@ -11,7 +11,7 @@
           <KexpLabel id="comment"
           wrap="true"
           width="500"
-          font = "font:SmallSystemFont" 
+          font = "font:SmallSystemFont"
           />
 	</children>
 <!-- BrightScript Portion -->
@@ -26,9 +26,9 @@
     cur_track = m.top.findNode("cur_track")
     prev_track = m.top.findNode("prev_track")
     prev_prev_track = m.top.findNode("prev_prev_track")
-    cur_track.metadata = m.top.tracks[0] 
-    prev_track.metadata = m.top.tracks[1] 
-    prev_prev_track.metadata = m.top.tracks[2] 
+    cur_track.metadata = m.top.tracks[0]
+    prev_track.metadata = m.top.tracks[1]
+    prev_prev_track.metadata = m.top.tracks[2]
 
     comment = m.top.findNode("comment")
     comment.text = m.top.tracks[0].comment
