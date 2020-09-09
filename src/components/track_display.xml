@@ -8,7 +8,7 @@
           <PlaylistItem id="prev_prev_track" opacity=".2" />
           <PlaylistItem id="prev_track" opacity=".4" />
           <PlaylistItem id="cur_track" />
-          <KexpLabel id="comment"
+          <CommentLabel id="comment"
           wrap="true"
           width="500"
           font = "font:SmallSystemFont"
@@ -31,7 +31,7 @@
     prev_prev_track.metadata = m.top.tracks[2]
 
     comment = m.top.findNode("comment")
-    comment.text = m.top.tracks[0].comment
+    comment.originalText = m.top.tracks[0].comment
   end function
 ]]>
 </script>
