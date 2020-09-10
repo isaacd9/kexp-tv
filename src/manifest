@@ -5,9 +5,9 @@
 #
 
 ##   Channel Details
-title=Hello World
-major_version=1
-minor_version=0
+title=Kexp
+major_version=0
+minor_version=1
 build_version=00001
 
 ##   Channel Assets
@@ -24,4 +24,4 @@ splash_screen_hd=pkg:/images/splash-screen_hd.jpg
 splash_screen_sd=pkg:/images/splash-screen_sd.jpg
 
 splash_color=#000000
-splash_min_time=1
+splash_min_time=0
