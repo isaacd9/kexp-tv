@@ -7,6 +7,7 @@
   <interface>
     <field id = "tracks" type = "array" />
     <field id = "album_art" type = "string" />
+    <field id = "show_info" type = "assocarray" />
   </interface>
 
   <script type = "text/brightscript" >
@@ -52,10 +53,11 @@
         end if
 
         data = dataEvent.GetString()
-        result = ParseJson(data)
+        result = ParseJSON(data)
 
         m.top.tracks = result.results
         m.top.album_art = fetchAlbumArt(result)
+        m.top.show_info = fetchShow(result)
     end sub
 
     sub fetchAlbumArt(result) as Object
@@ -87,7 +89,22 @@
         print "error downloading album_art" + readInternet.status
       end if
 
-      return filename    
+      return filename
+    end sub
+
+    sub fetchShow(result) as Object
+      curSong = result.results[0]
+      showUri = curSong.show_uri
+      if showUri = ""
+        return ""
+      end if
+
+      readInternet = createObject("roUrlTransfer")
+      readInternet.EnablePeerVerification(false)
+
+      readInternet.setUrl(showUri)
+      showInfo = readInternet.GetToString()
+      return ParseJSON(showInfo)
     end sub
     ]]>
 

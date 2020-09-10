@@ -53,7 +53,7 @@
     m.chunks = chunks
     m.i = 0
 
-    print "updated comment " + text
+    'print "updated comment " + text
 
     nextChunk()
   end function
