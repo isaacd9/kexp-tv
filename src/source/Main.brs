@@ -20,7 +20,7 @@ sub Main()
         streamContentIDs: "kexp128.mp3",
         streamBitrates: [128],
         streamQualities: "128",
-        stream:  {
+        stream: {
             url: "https://kexp-mp3-128.streamguys1.com/kexp128.mp3"
         }
     }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="NowPlaying" extends="Scene">
+  <children>
+    <Overhang id="overhang" title="KEXP 90.3" logoUri="pkg:/images/logo-yellow.png" logoBaselineOffset="20" leftDividerUri="" leftDividerVertOffset="1000" clockText="" titleColor="0xAEAEAE" clockColor="0xAEAEAE" opacity=".65" />
+    <LayoutGroup id="content" layoutDirection="vert" itemSpacings="30" vertAlignment="center" horizAlignment="center">
+      <LayoutGroup id="maindisp" layoutDirection="horiz" itemSpacings="30" vertAlignment="top">
+        <Poster id="album_cover" width="500" height="500" uri="pkg:/images/default-album-art.png" translation="[0,0]" />
+        <TrackDisplay id="trackDisplay" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </children>
+  <script type="text/brightscript" uri="pkg:/components/NowPlaying.brs" />
+</component>
