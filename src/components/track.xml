@@ -1,55 +1,18 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <component name="Track" extends="LayoutGroup">
-    <interface >
-        <field id = "title" type = "string" onchange="updateTitleArtist" />
-        <field id = "artist" type = "string" onchange="updateTitleArtist" />
-        <field id = "album" type = "string" onchange="updateAlbum" />
-    </interface>
+  <interface>
+    <field id="title" type="string" onchange="updateTitleArtist" />
+    <field id="artist" type="string" onchange="updateTitleArtist" />
+    <field id="album" type="string" onchange="updateAlbum" />
+  </interface>
 
-	<children>
-      <LayoutGroup
-          id = "trackLayout"
-          translation = "[0,0]"
-          itemSpacings = "[5]"
-          layoutDirection = "vert" >
-      <LayoutGroup
-          id = "firstLineLayout"
-          translation = "[0,0]"
-          itemSpacings = "[8]"
-          layoutDirection = "horiz" >
-      <ScrollingKexpLabel id="titleArtist"
-        text="Artist Goes Here - Title Goes here"
-        font = "font:LargeBoldSystemFont"
-        maxwidth = "550"
-        />
+  <children>
+    <LayoutGroup id="trackLayout" translation="[0,0]" itemSpacings="[5]" layoutDirection="vert">
+      <LayoutGroup id="firstLineLayout" translation="[0,0]" itemSpacings="[8]" layoutDirection="horiz">
+        <ScrollingKexpLabel id="titleArtist" text="Artist Goes Here - Title Goes here" font="font:LargeBoldSystemFont" maxwidth="550" />
+      </LayoutGroup>
+      <KexpLabel id="albumLabel" text="" font="font:MediumSystemFont" width="500" />
     </LayoutGroup>
-    <KexpLabel id="albumLabel"
-        text=""
-        font = "font:MediumSystemFont"
-        width = "500"
-    />
-    </LayoutGroup>
-    </children>
-<!-- BrightScript Portion -->
-<script type="text/brightscript" >
-<![CDATA[
-  function init()
-    m.top.layoutDirection="vert"
-    m.top.horizAlignment = "left"
-    m.top.vertAlignment	= "center"
-    m.top.itemSpacings = [7.0]
-  end function
-
-  function updateTitleArtist()
-    titleArtist = m.top.findNode("titleArtist")
-    titleArtist.text = m.top.artist + " - " + m.top.title
-  end function
-
-  function updateAlbum()
-    album = m.top.findNode("albumLabel")
-    album.text = ucase(m.top.album)
-  end function
-]]>
-</script>
-<!-- End of BrightScript Portion -->
+  </children>
+  <script type="text/brightscript" uri="pkg:/components/Track.brs" />
 </component>

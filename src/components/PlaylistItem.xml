@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="PlaylistItem" extends="Group">
+  <interface>
+    <field id="metadata" type="assocarray" onchange="updateMetadata" />
+    <field id="opacity" type="integer" />
+  </interface>
+
+  <children>
+    <Track id="track" title="Title" artist="Artist" album="Album" />
+  </children>
+
+  <!-- BrightScript Portion -->
+  <script type="text/brightscript" uri="pkg:/components/PlaylistItem.brs" />
+  <!-- End of BrightScript Portion -->
+</component>

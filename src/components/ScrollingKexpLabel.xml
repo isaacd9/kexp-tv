@@ -7,12 +7,4 @@
             scrollSpeed="1"
         />
     </children>
-<!-- BrightScript Portion -->
-<script type="text/brightscript" >
-<![CDATA[
-  function init()
-  end function
-]]>
-</script>
-<!-- End of BrightScript Portion -->
 </component>

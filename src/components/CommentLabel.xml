@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="CommentLabel" extends="KexpLabel">
+    <interface>
+        <field id="originalText" type="string" onchange="updateText" />
+    </interface>
+
+    <children>
+        <Timer id="commentTimer" repeat="true" duration="10" />
+    </children>
+    <!-- BrightScript Portion -->
+    <script type="text/brightscript" uri="pkg:/components/CommentLabel.brs" />
+    <!-- End of BrightScript Portion -->
+</component>
