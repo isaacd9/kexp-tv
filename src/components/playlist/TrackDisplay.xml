@@ -10,5 +10,5 @@
     <PlaylistItem id="cur_track" />
     <CommentLabel id="comment" wrap="true" width="500" font="font:SmallSystemFont" />
   </children>
-  <script type="text/brightscript" uri="pkg:/components/TrackDisplay.brs" />
+  <script type="text/brightscript" uri="pkg:/components/playlist/TrackDisplay.brs" />
 </component>

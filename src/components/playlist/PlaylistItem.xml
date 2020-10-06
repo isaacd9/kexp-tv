@@ -10,6 +10,6 @@
   </children>
 
   <!-- BrightScript Portion -->
-  <script type="text/brightscript" uri="pkg:/components/PlaylistItem.brs" />
+  <script type="text/brightscript" uri="pkg:/components/playlist/PlaylistItem.brs" />
   <!-- End of BrightScript Portion -->
 </component>

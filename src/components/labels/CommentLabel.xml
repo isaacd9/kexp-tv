@@ -8,6 +8,6 @@
         <Timer id="commentTimer" repeat="true" duration="10" />
     </children>
     <!-- BrightScript Portion -->
-    <script type="text/brightscript" uri="pkg:/components/CommentLabel.brs" />
+    <script type="text/brightscript" uri="pkg:/components/labels/CommentLabel.brs" />
     <!-- End of BrightScript Portion -->
 </component>

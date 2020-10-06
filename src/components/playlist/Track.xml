@@ -14,5 +14,5 @@
       <KexpLabel id="albumLabel" text="" font="font:MediumSystemFont" width="500" />
     </LayoutGroup>
   </children>
-  <script type="text/brightscript" uri="pkg:/components/Track.brs" />
+  <script type="text/brightscript" uri="pkg:/components/playlist/Track.brs" />
 </component>
