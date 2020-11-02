@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="AlbumArt" extends="Poster">
+  <interface>
+    <field id="coverArt" type="string" onchange="updateCoverArt" />
+  </interface>
+
+  <!-- BrightScript Portion -->
+  <script type="text/brightscript" uri="pkg:/components/AlbumArt.brs" />
+  <!-- End of BrightScript Portion -->
+</component>

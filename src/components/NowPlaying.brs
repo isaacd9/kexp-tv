@@ -24,10 +24,7 @@ end function
 function updateAlbumArt()
     album_art_node = m.top.findNode("album_cover")
     album_art_uri = m.metadataTask.album_art
-    if album_art_uri = ""
-        album_art_uri = "pkg:/images/default-album-art.png"
-    end if
-    album_art_node.uri = album_art_uri
+    album_art_node.coverArt = album_art_uri
 end function
 
 function updateShow()
