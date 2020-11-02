@@ -26,6 +26,11 @@ sub doRequest()
 
     ' DataEvent
     dataEvent = wait(5000, m.port)
+    if dataEvent = invalid
+        print "timed out waiting for request to complete", m.readInternet
+        ' Bail out early to avoid crashing
+        return
+    end if
     if dataEvent.GetInt() = 2
         print "unexpected event type"
         ' Bail out early to avoid crashing
