@@ -30,5 +30,5 @@ end function
 function updateShow()
     overhang = m.top.findNode("overhang")
     show_info = m.metadataTask.show_info
-    overhang.clockText = show_info.program_name + " with " + show_info.host_names[0]
+    overhang.clockText = show_info.program_name + " with " + show_info.host_names.Join(" & ")
 end function
